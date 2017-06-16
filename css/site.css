@@ -1,0 +1,23 @@
+/* site.css */
+  header, footer {
+    background-color: lightgray;
+    border: solid 1px black;
+    /*font-family: 'Time new Roman', serif;*/
+  }
+
+  footer {
+      padding: 10px;
+      border-radius: 3px;
+  }
+
+  body {
+    font-family: Segoe UI, Arial, Helvetics, sans-serif;
+  }
+
+  #main {
+      border: solid 1px #ccc;
+      border-radius: 5px;
+      color: #202020;
+      margin: 20px 0;
+      padding: 5px;
+  }
