@@ -8,40 +8,45 @@
   <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
-  <header style="background-color: lightgray;">
-  <div><img src="img/logo.gif" /></div>
-  <div>This is a site to search Github for interesting projects.</div>
-  <nav>
-    <ul>
-    <li><a href="/index.html">Home</a></li>
-    <li><a href="/contact.html">Contact</a></li>
-    <li><a href="/about.htmnl">About</a></li>
-    </ul>
-  </nav>
-  </header>
-  <section id="main">
-  <p>
-    In this <em>sample</em> site, we'll show a list of <a href="http://github.com">Github</a> projects
-    <span>and the data</span> about <strong>projects.</strong>
-  </p>
-  <form action="http://wilder.azurewebsites.net/echo" method="POST">
-    <label for="searchPhrase">Search Phrase:</label>
-    <input name="searchPhrase" id="searchPhrase"/><br/>
-    <input type="checkbox" name="useStars" id="useStars" checked="true" /><label for="useStars"> Use Stars?<br/></label>
-    <label for="languageChoice">Language Choice</label>
-    <select name="languageChoice" id="languageChoice">
-      <option >All</option>
-      <option>JavaScript</option>
-      <option selected>C#</option>
-      <option>Java</option>
-      <option>Ruby</option>
-    </select>
-    <br/>
-    <input type="submit" value="Search" />
-  </form>
-  </section>
-  <footer>
-    &copy; 2017 Grayson Golden
-  </footer>
+  <div class="container">
+    <header style="background-color: lightgray;">
+      <nav>
+      <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><a href="/about.htmnl">About</a></li>
+      </ul>
+    </nav>
+    <div><img src="img/logo.gif" class="bordered-image" /></div>
+    <div>This is a site to search Github for interesting projects.</div>
+    </header>
+    <section id="main">
+    <p>
+      In this <em>sample</em> site, we'll show a list of <a href="http://github.com">Github</a> projects
+      <span>and the data</span> about <strong>projects.</strong>
+    </p>
+    <form action="http://wilder.azurewebsites.net/echo" method="POST" class="bordered-image simple-form">
+      <label for="searchPhrase">Search Phrase:</label>
+      <input type="text" name="searchPhrase" id="searchPhrase"/><br/>
+      <input type="checkbox" name="useStars" id="useStars" checked="true" /><label for="useStars"> Use Stars?<br/></label>
+      <label for="languageChoice">Language Choice</label>
+      <select name="languageChoice" id="languageChoice">
+        <option >All</option>
+        <option>JavaScript</option>
+        <option selected>C#</option>
+        <option>Java</option>
+        <option>Ruby</option>
+      </select>
+      <br/>
+      <input type="submit" value="Search" />
+    </form>
+    <div id="results" class="bordered-image">
+      This is where results will live. Eventually.
+    </div>
+    </section>
+    <footer>
+      &copy; 2017 Grayson Golden
+    </footer>
+  </div>
 </body>
 </html>
