@@ -1,56 +1,115 @@
 /*
     index.js
 */
-"use strict";
+$(document).ready(function (){
 
-var resultsDiv = document.getElementById("results");
-resultsDiv.innerHTML = "<p>This is from JavaScript</p>"
+// "use strict";
 
-var result = {
-    name: "jQuery",
-    language: "JavaScript",
-    score: 4.5,
-    showLog: function() {
+var gitHubSearch = "https://api.github.com/search/repositories?q=jquery+language:javascript&sort=stars";
 
-    },
-    owner: {
-        login: "graygold",
-        id: 12345
-    }
-};
+$.get(gitHubSearch)
+    .then(function(r) {
+        //console.log(r.items.length);
+        displayResults(r.items);
+    })
+    .fail(function(err) {
+        console.log("Failed to query GitHub");
+    })
+    .done(function() {
+        //
+});
+    
+
+// $.get(gitHubSearch, function (r) {
+//     //console.log(r.items.length);
+//     displayResults(r.items);
+// });
+
+var resultList = $("#resultList");
+resultList.text("This is from jQuery");
+
+var toggleButton = $("#toggleButton");
+toggleButton.on("click", function(){
+    resultList.toggle(500);
+
+    if (toggleButton.text() == "Hide") toggleButton.text("Show");
+    else toggleButton.text("Hide");
+});
+
+var listItems = $("header nav li");
+listItems.css("font-weight", "bold");
+listItems.filter(":first").css("font-size", "18px");
+
+// var resultsDiv = document.getElementById("results");
+// resultsDiv.innerHTML = "<p>This is from JavaScript</p>"
+// var result = {
+//     name: "jQuery",
+//     language: "JavaScript",
+//     score: 4.5,
+//     showLog: function() {
+
+//     },
+//     owner: {
+//         login: "graygold",
+//         id: 12345
+//     }
+// };
 
 // result.phoneNumber = "123-456-7890";
 
 // console.log(result.phoneNumber);
 
-var results = [{
-    name: "jQuery",
-    language: "JavaScript",
-    score: 4.5,
-    owner: {
-        login: "graygold",
-        id: 12345
-    }
-}, {
-    name: "jQuery UI",
-    language: "JavaScript",
-    score: 3.5,
-    owner: {
-        login: "gray",
-        id: 456
-    }
-}];
+// var results = [{
+//     name: "jQuery",
 
-results.push(result);
-results.push({
-    name: "dummy object"
+//     language: "JavaScript",
+//     score: 4.5,
+//     owner: {
+//         login: "graygold",
+//         id: 12345
+//     }
+// }, {
+//     name: "jQuery UI",
+//     language: "JavaScript",
+//     score: 3.5,
+//     owner: {
+//         login: "gray",
+//         id: 456
+//     }
+// }];
+
+resultList.empty();
+
+function displayResults(results) {
+$.each(results, function (i, item) {
+    var newResult = $("<div class='result'>" +
+        "<div class='title'>" + item.name + "</div>" +
+        "<div>Language: " + item.language + "</div>" +
+        "<div>Owner: " + item.owner.login + "</div>" +
+        "</div>");
+
+    newResult.hover(function () {
+        // make it darker
+        $(this).css("background-color", "lightgray");
+    }, function () {
+        // reverse
+        $(this).css("background-color", "transparent");
+    });
+
+    resultList.append(newResult);    
 });
-
-for (var x = 0; x < results.length; x++) {
-    var result = results[x];
-    if (result.score > 4) continue;
-    console.log(result.name);
 }
+
+// results.push(result);
+// results.push({
+//     name: "dummy object"
+// });
+
+// for (var x = 0; x < results.length; x++) {
+//     var result = results[x];
+//     if (result.score > 4) continue;
+//     console.log(result.name);
+// }
 
 // console.log(results.length);
 // console.log(results[0].owner.login);
@@ -127,3 +186,4 @@ for (var x = 0; x < results.length; x++) {
 // //console.log("global: " + someMsg);
 
 // testMe();
+});

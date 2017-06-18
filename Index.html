@@ -16,7 +16,7 @@
       <li><a href="/contact.html">Contact</a></li>
       <li><a href="/about.htmnl">About</a></li>
       </ul>
-    </nav>
+      </nav>
     <div><img src="img/logo.gif" class="bordered-image" /></div>
     <div>This is a site to search Github for interesting projects.</div>
     </header>
@@ -41,13 +41,15 @@
       <input type="submit" value="Search" />
     </form>
     <div id="results" class="bordered-image">
-      This is where results will live. Eventually.
+      <button id="toggleButton">Hide</button>
+      <div id="resultList">This is where results will go</div>
     </div>
     </section>
     <footer>
       &copy; 2017 Grayson Golden
     </footer>
   </div>
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>
